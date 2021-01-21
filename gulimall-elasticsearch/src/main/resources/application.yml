@@ -1,0 +1,20 @@
+#spring:
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: 192.168.240.128:8848
+#  thymeleaf:
+#    cache: false
+#  session:
+#    store-type: redis
+#  redis:
+#    port: 6379
+#    host: 192.168.240.128
+#
+#
+#logging:
+#  level:
+#    com.dadazhang.gulimall: debug
+#
+#server:
+#  port: 7000

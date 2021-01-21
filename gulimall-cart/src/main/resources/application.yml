@@ -1,0 +1,15 @@
+#server:
+#  port: 9000
+#
+#spring:
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: 192.168.240.128:8848
+#  redis:
+#    host: 192.168.240.128
+#    port: 6379
+#  session:
+#    store-type: redis
+#  thymeleaf:
+#    cache: false

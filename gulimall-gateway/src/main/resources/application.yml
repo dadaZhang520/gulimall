@@ -1,0 +1,93 @@
+#spring:
+#  cloud:
+#    gateway:
+#      discovery:
+#        locator:
+#          lower-case-service-id: true
+#      routes:
+#        - id: product_route
+#          uri: lb://gulimall-product
+#          predicates:
+#            - Path=/api/product/**
+#          filters:
+#            - RewritePath=/api/(?<segment>/?.*),/$\{segment}
+#
+#        - id: third-party_route
+#          uri: lb://gulimall-third-party
+#          predicates:
+#            - Path=/api/third/party/**
+#          filters:
+#            - RewritePath=/api/(?<segment>/?.*),/$\{segment}
+#
+#        - id: member_router
+#          uri: lb://gulimall-member
+#          predicates:
+#            - Path=/api/member/**
+#          filters:
+#            - RewritePath=/api/(?<segment>/?.*),/$\{segment}
+#
+#        - id: ware_router
+#          uri: lb://gulimall-ware
+#          predicates:
+#            - Path=/api/ware/**
+#          filters:
+#            - RewritePath=/api/(?<segment>/?.*),/$\{segment}
+#
+#        - id: order_router
+#          uri: lb://gulimall-order
+#          predicates:
+#            - Path=/api/order/**
+#          filters:
+#            - RewritePath=/api/(?<segment>/?.*),/$\{segment}
+#
+#        - id: seckill_router
+#          uri: lb://gulimall-seckill
+#          predicates:
+#            - Path=/api/coupon/**
+#          filters:
+#            - RewritePath=/api/(?<segment>/?.*),/$\{segment}
+#
+#        - id: admin_route
+#          uri: lb://renren-fast
+#          predicates:
+#            - Path=/api/**
+#          filters:
+#            - RewritePath=/api/(?<segment>/?.*),/renren-fast/$\{segment}
+#
+#        - id: gulimall_search_router
+#          uri: lb://gulimall-elasticsearch
+#          predicates:
+#            - Host=search.gulimall.com
+#
+#        - id: gulimall_auth_server_router
+#          uri: lb://gulimall-auth-server
+#          predicates:
+#            - Host=auth.gulimall.com
+#
+#        - id: gulimall_cart_router
+#          uri: lb://gulimall-cart
+#          predicates:
+#            - Host=cart.gulimall.com
+#
+#        - id: gulimall_order_router
+#          uri: lb://gulimall-order
+#          predicates:
+#            - Host=order.gulimall.com
+#
+#        - id: gulimall_member_router
+#          uri: lb://gulimall-member
+#          predicates:
+#            - Host=member.gulimall.com
+#
+#        - id: gulimall_seckill_router
+#          uri: lb://gulimall-seckill
+#          predicates:
+#            - Host=seckill.gulimall.com
+#
+#        - id: gulimall_router
+#          uri: lb://gulimall-product
+#          predicates:
+#            - Host=gulimall.com,item.gulimall.com
+#
+#  main:
+#    allow-bean-definition-overriding: true

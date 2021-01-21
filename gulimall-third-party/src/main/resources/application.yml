@@ -1,0 +1,22 @@
+#spring:
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: 192.168.240.128:8848
+#
+#server:
+#  port: 6000
+#
+#alibaba:
+#  cloud:
+#    oss:
+#      accessKey: LTAI4GEwKdT92W1RvHfQXqMG
+#      secretKey: 1efwERf5MFdYENyRL8TfZuuBJViYbh
+#      endpoint: oss-cn-shenzhen.aliyuncs.com
+#      bucket: dadazhang-oss
+#    sms:
+#      host: https://edisim.market.alicloudapi.com
+#      path: /comms/sms/sendmsg
+#      appcode: 9b3a920de927496f92cadab8a1c19de2
+#      channel: 1
+#      templateID: 20201114191742

@@ -1,0 +1,11 @@
+#spring:
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: 192.168.240.128:8848
+#  thymeleaf:
+#    cache: false
+#
+#logging:
+#  level:
+#    com.dadazhang.gulimall: debug

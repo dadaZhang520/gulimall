@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dadazhang.gulimall.ware.dao.WareSkuDao">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.dadazhang.gulimall.ware.entity.WareSkuEntity" id="wareSkuMap">
+        <result property="id" column="id"/>
+        <result property="skuId" column="sku_id"/>
+        <result property="wareId" column="ware_id"/>
+        <result property="stock" column="stock"/>
+        <result property="skuName" column="sku_name"/>
+        <result property="stockLocked" column="stock_locked"/>
+    </resultMap>
+
+    <update id="addStock">
+        update wms_ware_sku
+        set stock=stock + #{skuNum}
+        where sku_id = #{skuId}
+          and ware_id = #{wareId}
+    </update>
+    <select id="getSkuHasStock" resultType="java.lang.Long">
+        SELECT SUM(stock - stock_locked - #{count})
+        FROM wms_ware_sku
+        WHERE sku_id = #{skuId}
+    </select>
+
+    <select id="orderHasStockBySkuId" resultType="java.lang.Long">
+        SELECT ware_id
+        FROM `wms_ware_sku`
+        where sku_id = #{skuId}
+    </select>
+
+    <update id="lockStockNum">
+        update wms_ware_sku
+        set stock_locked=stock_locked + #{lockNum}
+        WHERE sku_id = #{skuId}
+          AND ware_id = #{wareId}
+          AND stock - stock_locked >= #{lockNum}
+    </update>
+    <update id="releaseStock">
+        update wms_ware_sku
+        set stock_locked=stock_locked - #{skuNum}
+        where sku_id = #{skuId}
+          and ware_id = #{wareId}
+    </update>
+    <update id="subtractRealStock">
+        UPDATE wms_ware_sku
+        SET stock=stock - #{skuNum}
+        WHERE sku_id = #{skuId}
+          AND ware_id = #{wareId}
+    </update>
+</mapper>
